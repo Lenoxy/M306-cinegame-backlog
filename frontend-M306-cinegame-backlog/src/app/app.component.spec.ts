@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'frontent-M306-cinegame-backlog'`, () => {
+  it(`should have as title 'frontend-M306-cinegame-backlog'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontent-M306-cinegame-backlog');
+    expect(app.title).toEqual('frontend-M306-cinegame-backlog');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('frontent-M306-cinegame-backlog app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('frontend-M306-cinegame-backlog app is running!');
   });
 });

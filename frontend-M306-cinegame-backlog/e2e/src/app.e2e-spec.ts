@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('frontent-M306-cinegame-backlog app is running!');
+    expect(await page.getTitleText()).toEqual('frontend-M306-cinegame-backlog app is running!');
   });
 
   afterEach(async () => {

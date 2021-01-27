@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/frontent-M306-cinegame-backlog'),
+      dir: require('path').join(__dirname, './coverage/frontend-M306-cinegame-backlog'),
       subdir: '.',
       reporters: [
         { type: 'html' },
