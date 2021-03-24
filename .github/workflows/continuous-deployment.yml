@@ -1,0 +1,19 @@
+name: Continuous-Deployment
+
+on:
+  push:
+    branches: release
+
+jobs:
+  deploy:
+    name: Production-Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute-Remote-Deplyoment-Script
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            script: cd /root/cinegame-backlog && ./deployment.sh
+
