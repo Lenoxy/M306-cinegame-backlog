@@ -1,0 +1,26 @@
+name: Continuous-Integration
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout-Repository
+        uses: actions/checkout@v2
+      
+      - name: Create-Postgres-Test-DB
+        run: |
+          docker run --name cinegame-backlog-test -e POSTGRES_PASSWORD=Cinegame123 -e POSTGRES_USER=Cinegame -p 5433:5432 -d postgres:12
+
+      - name: Run-Backend-Tests
+        run: | 
+          cd backend-cinegame-backlog
+          mvn clean install
+          mvn test
+          cd ..
