@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  cinegame-frontend:
+    container_name: cinegame-frontend
+    build: frontend-cinegame-backlog
+    ports:
+      - 80:80
+      - 443:443
+
+  cinegame-backend:
+    container_name: cinegame-backend
+    build: backend-cinegame-backlog
+    ports:
+      - 8080:8080
+    depends_on:
+      - cinegame-database
+
+    networks:
+      - backend
+
+  cinegame-database:
+    container_name: cinegame-database
+    image: postgres:13.2
+    environment:
+      DB_NAME: cinegame
+      POSTGRES_USER: cinegame
+      POSTGRES_PASSWORD: Cinegame321
+    ports:
+      - 5432:5432 # Remove in Prod
+    networks:
+      - backend
+
+networks:
+  backend:
