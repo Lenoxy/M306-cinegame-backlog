@@ -15,5 +15,5 @@ jobs:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.SSH_PRIVATE_KEY }}
-            script: cd /root/cinegame-backlog && ./deployment.sh
+            script: echo "test"
 
