@@ -6,12 +6,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "list_user")
+@NamedQuery(name = "User.checkPassword", query = "SELECT u FROM UserEntity u WHERE u.username = :username and u.passwordSHA256 = :password")
 public class UserEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "username")
     private String username;
@@ -22,7 +23,7 @@ public class UserEntity{
     public UserEntity(){
     }
 
-    public UserEntity(int id, String username, String passwordSHA256){
+    public UserEntity(long id, String username, String passwordSHA256){
         this.id = id;
         this.username = username;
         this.passwordSHA256 = passwordSHA256;
@@ -35,7 +36,7 @@ public class UserEntity{
         );
     }
 
-    public int getId(){
+    public long getId(){
         return id;
     }
 
