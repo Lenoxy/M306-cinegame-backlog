@@ -1,1 +1,23 @@
-<p>register works!</p>
+<h2>Register</h2>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Username">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="email" [(ngModel)]="email" placeholder="Email">
+</div>
+
+<div class="input-group mb-3">
+  <input type="password" class="form-control" id="password" [(ngModel)]="password" placeholder="Password">
+</div>
+
+
+<div class="container-fluid btn-group mb-3 p-0">
+  <button type="button" class="btn btn-dark">Register</button>
+</div>
+
+<div class="container-fluid btn-group mb-3 p-0">
+  <button class="btn btn-light" routerLink="/login">Login</button>
+  <button class="btn btn-light">Forgot password</button>
+</div>
