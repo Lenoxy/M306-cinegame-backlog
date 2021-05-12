@@ -1,11 +1,13 @@
 package ch.css.lernende.backendcinegamebacklog.entity;
 
 import ch.css.lernende.backendcinegamebacklog.dto.LoginInDto;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "list_user")
+@Getter
 public class UserEntity{
 
     @Id
@@ -33,18 +35,6 @@ public class UserEntity{
                 passwordSHA256,
                 username
         );
-    }
-
-    public int getId(){
-        return id;
-    }
-
-    public String getUsername(){
-        return username;
-    }
-
-    public void setUsername(String username){
-        this.username = username;
     }
 
     public String getPasswordSHA256(){
