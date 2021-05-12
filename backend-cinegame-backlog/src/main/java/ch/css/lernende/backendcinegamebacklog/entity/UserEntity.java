@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "list_user")
-@NamedQuery(name = "User.checkPassword", query = "SELECT u FROM UserEntity u WHERE u.username = :username and u.passwordSHA256 = :password")
+@NamedQuery(name = "UserEntity.checkPassword", query = "SELECT u FROM UserEntity u WHERE u.username = :username and u.passwordSHA256 = :password")
 public class UserEntity{
 
     @Id

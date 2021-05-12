@@ -24,8 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(final HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .regexMatchers("/token")
-                .permitAll()
+                .regexMatchers("/auth").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().csrf().disable();
