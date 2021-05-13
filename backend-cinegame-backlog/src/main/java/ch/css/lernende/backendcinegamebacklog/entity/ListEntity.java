@@ -1,6 +1,7 @@
 package ch.css.lernende.backendcinegamebacklog.entity;
 
 import ch.css.lernende.backendcinegamebacklog.entity.type.ListType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "cinegame_list")
 public class ListEntity{
@@ -19,7 +21,11 @@ public class ListEntity{
     private int id;
 
     @Column(name = "type")
-    ListType type;
+    private ListType type;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore // Needed to break recursion
+    private UserEntity owner;
 
     @OneToMany(
             mappedBy = "list",
@@ -29,7 +35,12 @@ public class ListEntity{
     List<ItemEntity> items = new ArrayList<>();
 
     public void setItems(List<ItemEntity> items){
-        //items.stream().map(i -> i.setId(getId()));
+        items.forEach(i -> i.setList(this));
         this.items = items;
+    }
+
+    public void addItem(ItemEntity item){
+        item.setList(this);
+        this.items.add(item);
     }
 }

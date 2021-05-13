@@ -1,6 +1,7 @@
 package ch.css.lernende.backendcinegamebacklog.entity;
 
 import ch.css.lernende.backendcinegamebacklog.entity.type.State;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,5 +31,6 @@ public class ItemEntity{
     State state;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore // Needed to break recursion
     private ListEntity list;
 }
