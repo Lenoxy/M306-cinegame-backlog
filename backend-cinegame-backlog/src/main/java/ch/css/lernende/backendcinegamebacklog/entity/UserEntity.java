@@ -1,12 +1,13 @@
 package ch.css.lernende.backendcinegamebacklog.entity;
 
-import ch.css.lernende.backendcinegamebacklog.dto.LoginInDto;
+import ch.css.lernende.backendcinegamebacklog.dto.auth.LoginContainer;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "list_user")
+@Table(name = "cinegame_user")
 @Getter
 public class UserEntity{
 
@@ -21,6 +22,13 @@ public class UserEntity{
     @Column(name = "password")
     private String passwordSHA256;
 
+    @OneToMany(
+            mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<ListEntity> lists;
+
     public UserEntity(){
     }
 
@@ -30,18 +38,21 @@ public class UserEntity{
         this.passwordSHA256 = passwordSHA256;
     }
 
-    public LoginInDto toUserDto(){
-        return new LoginInDto(
+    public LoginContainer toUserDto(){
+        return new LoginContainer(
                 passwordSHA256,
                 username
         );
     }
 
-    public String getPasswordSHA256(){
-        return passwordSHA256;
+
+    public void setLists(List<ListEntity> lists){
+        lists.forEach(l -> l.setOwner(this));
+        this.lists = lists;
     }
 
-    public void setPasswordSHA256(String passwordSHA256){
-        this.passwordSHA256 = passwordSHA256;
+    public void addList(ListEntity list){
+        list.setOwner(this);
+        lists.add(list);
     }
 }
