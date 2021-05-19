@@ -8,6 +8,7 @@ import {RegisterComponent} from './register/register.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotPasswordComponent
   ],
   bootstrap: [ AppComponent ]
 })
