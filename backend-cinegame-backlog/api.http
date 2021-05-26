@@ -6,3 +6,6 @@ Content-Type: application/json
   "username": "leo",
   "password": "abcd"
 }
+
+###
+GET http://localhost:8080/hello
