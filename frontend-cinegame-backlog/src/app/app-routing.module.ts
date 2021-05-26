@@ -1,9 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {ProfileComponent} from './profile/profile.component';
+import {OverviewComponent} from './overview/overview.component';
+import {NewItemComponent} from './new-item/new-item.component';
+import {EditItemComponent} from './edit-item/edit-item.component';
 
 const routes: Routes = [
   {
@@ -13,35 +17,35 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.component').then(m => m.LoginComponent)
+    component: LoginComponent
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.component').then(m => m.RegisterComponent)
+    component: RegisterComponent
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+    component: ForgotPasswordComponent
   },
   {
     path: 'reset-password',
-    loadChildren: () => import('./reset-password/reset-password.component').then(m => m.ResetPasswordComponent)
+    component: ResetPasswordComponent
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.component').then(m => m.ProfileComponent)
+    component: ProfileComponent
   },
   {
     path: 'overview',
-    loadChildren: () => import('./overview/overview.component').then(m => m.OverviewComponent)
+    component: OverviewComponent
   },
   {
     path: 'new-item',
-    loadChildren: () => import('./new-item/new-item.component').then(m => m.NewItemComponent)
+    component: NewItemComponent
   },
   {
     path: 'edit-item',
-    loadChildren: () => import('./edit-item/edit-item.component').then(m => m.EditItemComponent)
+    component: EditItemComponent
   }
 ];
 
