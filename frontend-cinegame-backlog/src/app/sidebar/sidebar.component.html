@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="assets/images/CinegameBacklogLogo.png" class="sidebar-logo">
+  </div>
+  <div class="sidebar-body">
+    <div class="sidebar-item" routerLink="['/overview', {type: 'film'}]">
+      <h3>Film</h3>
+    </div>
+    <div class="sidebar-item" routerLink="['/overview', {type: 'series'}]">
+      <h3>Series</h3>
+    </div>
+    <div class="sidebar-item" routerLink="['/overview', {type: 'games'}]">
+      <h3>Games</h3>
+    </div>
+    <div class="sidebar-item" (click)="logout()">
+      <img src="../../assets/images/logout.png" class="sidebar-item-logout">
+    </div>
+  </div>
+
+</aside>

@@ -14,6 +14,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     OverviewComponent,
     EditItemComponent,
     NewItemComponent,
-    ProfileComponent
+    ProfileComponent,
+    SidebarComponent
   ],
   bootstrap: [ AppComponent ]
 })

@@ -1,0 +1,42 @@
+aside.sidebar {
+  margin-left: 20%;
+}
+
+div.sidebar-header {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background: lightgray;
+}
+
+div.sidebar-item {
+  width: 100%;
+  padding: 25px 0px 25px 0px;
+  text-align: center;
+  background: #F8F8F8;
+}
+
+div.sidebar-item:hover {
+  background: #343A40;
+  color: white;
+}
+
+p {
+  margin: 0;
+}
+
+img.sidebar-item-logout {
+  height: 30px;
+  width: 30px;
+}
+
+div.sidebar-item:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+img.sidebar-logo {
+  height: 50px;
+}
