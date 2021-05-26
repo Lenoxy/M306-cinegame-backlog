@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MovieType} from '../type/movie.type';
+// @ts-ignore
+import jsonMovies from '../../assets/data/movies.json';
 
 @Component({
   selector: 'app-overview',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  public movies: MovieType[] = MovieType.parse(jsonMovies);
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
+    this.movies.forEach((movie) => console.log(movie.name));
   }
 
 }

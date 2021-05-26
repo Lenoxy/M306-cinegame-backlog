@@ -1,1 +1,22 @@
-<p>overview works!</p>
+<div id="addMoviesHeader">
+  <button>Add Movies</button>
+</div>
+<div id="table">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+      <th>State</th>
+      <th>Remove</th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+      <td>{{movie.name}}</td>
+      <td>{{movie.rating}}</td>
+      <td>{{movie.state}}</td>
+      <td>
+        <button>Remove</button>
+      </td>
+    </tr>
+  </table>
+
+</div>
