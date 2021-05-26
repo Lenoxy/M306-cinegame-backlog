@@ -13,15 +13,35 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () => import('./login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'register',
-    component: RegisterComponent
+    loadChildren: () => import('./register/register.component').then(m => m.RegisterComponent)
   },
   {
     path: 'forgot-password',
-    component: ForgotPasswordComponent
+    loadChildren: () => import('./forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.component').then(m => m.ResetPasswordComponent)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.component').then(m => m.ProfileComponent)
+  },
+  {
+    path: 'overview',
+    loadChildren: () => import('./overview/overview.component').then(m => m.OverviewComponent)
+  },
+  {
+    path: 'new-item',
+    loadChildren: () => import('./new-item/new-item.component').then(m => m.NewItemComponent)
+  },
+  {
+    path: 'edit-item',
+    loadChildren: () => import('./edit-item/edit-item.component').then(m => m.EditItemComponent)
   }
 ];
 
