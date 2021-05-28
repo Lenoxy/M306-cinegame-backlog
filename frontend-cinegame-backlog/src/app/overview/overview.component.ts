@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MovieType} from '../type/movie.type';
-// @ts-ignore
-import jsonMovies from '../../assets/data/movies.json';
+import {JsonService} from '../service/JsonService';
+import {ListType} from '../type/list.type';
+import {ActivatedRoute} from '@angular/router';
+import {GenericItemType} from '../type/generic-item.type';
 
 @Component({
   selector: 'app-overview',
@@ -10,13 +12,20 @@ import jsonMovies from '../../assets/data/movies.json';
 })
 export class OverviewComponent implements OnInit {
 
-  public movies: MovieType[] = MovieType.parse(jsonMovies);
+  public movies: GenericItemType[] = this.jsonService.parseMovies();
 
-  constructor() {
+  private listType: ListType;
+
+  constructor(
+    private jsonService: JsonService,
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
-
+    let type: string = this.route.snapshot.paramMap.get('type');
+    this.listType = ListType[type.toUpperCase()];
+    console.log(this.listType)
     this.movies.forEach((movie) => console.log(movie.name));
   }
 
