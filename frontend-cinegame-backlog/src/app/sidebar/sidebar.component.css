@@ -16,6 +16,7 @@ div.sidebar-item {
   padding: 25px 0px 25px 0px;
   text-align: center;
   background: #F8F8F8;
+  user-select: none;
 }
 
 div.sidebar-item:hover {
