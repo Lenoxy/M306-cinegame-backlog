@@ -3,11 +3,10 @@
     <img src="assets/images/CinegameBacklogLogo.png" class="sidebar-logo">
   </div>
   <div class="sidebar-body">
-    <div class="sidebar-item" [routerLink]="['/overview', 'movie']">
     <div class="sidebar-item" routerLink="/profile">
       <h3>Profile</h3>
     </div>
-    <div class="sidebar-item" routerLink="['/overview', {type: 'film'}]">
+    <div class="sidebar-item" [routerLink]="['/overview', 'movie']">
       <h3>Film</h3>
     </div>
     <div class="sidebar-item" [routerLink]="['/overview', 'series']">
