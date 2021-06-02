@@ -19,19 +19,17 @@ export class ResetPasswordComponent implements OnInit {
 
   async submit(): Promise<void> {
     if (!this.passwordAreEqual() || !this.passwordAreGreaterThanMinLength()) {
-      this.valid = true
+      this.valid = true;
     } else {
-      await this.router.navigate(["/"])
+      await this.router.navigate(['/']);
     }
   }
 
-
   passwordAreEqual(): boolean {
-    return this.passwordConfirmation == this.password
+    return this.passwordConfirmation === this.password;
   }
 
   private passwordAreGreaterThanMinLength(): boolean {
     return this.password && this.password.length > 5;
-
   }
 }
