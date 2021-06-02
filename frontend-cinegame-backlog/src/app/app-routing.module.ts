@@ -13,7 +13,7 @@ import {EditItemComponent} from './edit-item/edit-item.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
