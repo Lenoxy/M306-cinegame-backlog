@@ -25,7 +25,7 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 
-  passwordAreEqual(): boolean {
+  private passwordAreEqual(): boolean {
     return this.passwordConfirmation === this.password;
   }
 

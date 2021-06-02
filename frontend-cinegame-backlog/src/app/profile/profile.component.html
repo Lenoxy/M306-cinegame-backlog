@@ -1,1 +1,18 @@
-<p>profile works!</p>
+<h2>Profile</h2>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="email" [(ngModel)]="username" placeholder="Username" [readonly]="isEditable">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="username" [(ngModel)]="email" placeholder="Email" [readonly]="isEditable">
+</div>
+
+<div class="container-fluid btn-group mb-3 p-0">
+  <button class="btn btn-light" (click)="onChange()">Change</button>
+  <button class="btn btn-success" (click)="done()">Done</button>
+</div>
+
+<div class="container-fluid btn-group mb-3 p-0">
+  <button type="button" class="btn btn-dark" routerLink="/reset-password">Reset password</button>
+</div>
