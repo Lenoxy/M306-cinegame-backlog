@@ -9,6 +9,20 @@ export class MovieType extends GenericItemType {
     this.dateWatched = dateWatched;
     this.state = state;
   }
+
+  static parse(jsonMovies: any[]) {
+    let movieTypes: MovieType[] = []
+
+    jsonMovies.forEach(movie => {
+      movieTypes.push(new MovieType(movie.name, movie.rating, new Date(movie.dateWatched), movie.state))
+    })
+
+    console.log(movieTypes)
+
+    return movieTypes;
+
+  }
+
 }
 
 export enum MovieState {
