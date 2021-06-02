@@ -14,10 +14,10 @@ export class SidebarComponent implements OnInit {
   }
 
   async navigateToOverviewWithParam(film: string): Promise<void> {
-    await this.router.navigate(['/overview'], )
+    await this.router.navigate(['/overview'], );
   }
 
   async logout(): Promise<void> {
-    await this.router.navigate(['/login'])
+    await this.router.navigate(['/login']);
   }
 }
