@@ -1,0 +1,38 @@
+[
+  {
+    "name": "How I met your mother",
+    "rating": 8,
+    "progressseason": 1,
+    "progressepisode": 20,
+    "maxseason": 12,
+    "maxepisode": 24,
+    "dateWatched": null
+  },
+  {
+    "name": "Peaky Blinders",
+    "rating": 10,
+    "progressseason": 3,
+    "progressepisode": 5,
+    "maxseason": 5,
+    "maxepisode": 6,
+    "dateWatched": "2012-04-23T18:25:43.511Z"
+  },
+  {
+    "name": "Swat",
+    "rating": 8,
+    "progressseason": 2,
+    "progressepisode": 12,
+    "maxseason": 2,
+    "maxepisode": 20,
+    "dateWatched": "2012-04-23T18:25:43.511Z"
+  },
+  {
+    "name": "Hawaii Five 0",
+    "rating": 10,
+    "progressseason": 8,
+    "progressepisode": 10,
+    "maxseason": 10,
+    "maxepisode": 24,
+    "dateWatched": "2012-04-23T18:25:43.511Z"
+  }
+]

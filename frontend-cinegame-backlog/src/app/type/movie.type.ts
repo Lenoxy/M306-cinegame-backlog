@@ -13,5 +13,7 @@ export class MovieType extends GenericItemType {
 
 export enum MovieState {
   TO_WATCH = 'TO_WATCH',
-  WATCHED = 'WATCHED'
+  WATCHED = 'WATCHED',
+  FINISHED = 'FINISHED',
+  ABOUT_TO_START = 'ABOUT_TO_START'
 }

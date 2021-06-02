@@ -20,6 +20,7 @@ div.sidebar-item {
   align-items: center;
   text-align: center;
   background: #F8F8F8;
+  user-select: none;
 }
 
 div.sidebar-item:hover {

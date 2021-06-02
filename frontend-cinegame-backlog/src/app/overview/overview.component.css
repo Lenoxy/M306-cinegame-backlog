@@ -1,0 +1,29 @@
+td {
+  padding-left: 30px;
+}
+
+.centralized {
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+}
+
+.add-movies {
+  margin-bottom: 10%;
+}
+
+.positioning {
+  margin: 10px 0px;
+}
+
+#progress-range {
+  width: 100%;
+}
+                                                                                                              {}
+.width {
+  width: 200px;
+}
+
+div.input-group-text {
+  width: 200px;
+}
