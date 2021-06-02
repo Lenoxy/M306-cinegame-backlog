@@ -37,7 +37,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'overview',
+    path: 'overview/:type',
     component: OverviewComponent
   },
   {

@@ -1,22 +1,102 @@
-<div id="addMoviesHeader">
-  <button>Add Movies</button>
+<div class="add-movies" *ngIf="isAddMovieEnabled">
+  <h1 class="centralized">Add Movie</h1>
+  <div class="input-group mb-3 centralized">
+    <input type="text" class="form-control" id="name" placeholder="Moviename" [(ngModel)]="name">
+  </div>
+  <div class="input-group mb-3 centralized">
+    <input type="number" class="form-control" id="rating" [(ngModel)]="rating">
+  </div>
+  <div class="input-group mb-3 centralized" *ngIf="type == 'movies'">
+    <select class="form-control" [(ngModel)]="state">
+      <option *ngFor="let option of options">
+        {{option}}
+      </option>
+    </select>
+  </div>
+  <div class="input-group mb-3 centralized" *ngIf="type == 'games'">
+    <input type="range" class="form-range" id="progress-range" min="0" max="100" [(ngModel)]="gamesProgress">
+  </div>
+
+
+
+  <div class="input-group mb-3 centralized">
+    <label class="sr-only">Username</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend width">
+        <div class="input-group-text">Max Season</div>
+      </div>
+      <input type="text" class="form-control"  placeholder="Max Season" [(ngModel)]="maxSeason">
+    </div>
+
+    <label class="sr-only">Max Episodes</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend width">
+        <div class="input-group-text">Max Episodes</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Max Episodes" [(ngModel)]="maxEpisode">
+    </div>
+
+    <label class="sr-only">Current Season</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend width">
+        <div class="input-group-text">Current Season</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Current Season" [(ngModel)]="currSeason">
+    </div>
+
+    <label class="sr-only">Current Episode</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend width">
+        <div class="input-group-text">Current Episode</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Current Episode" [(ngModel)]="currEpisode">
+    </div>
+
+
+
+
+
+
+  </div>
+  <div class="input-group mb-3 centralized">
+    <button class="btn btn-dark form-control" (click)="onAdd()">Add {{type}}</button>
+  </div>
+</div>
+
+<div class="positioning">
+  <button (click)="toggleType()" class="btn btn-dark">Add {{type}}</button>
 </div>
 <div id="table">
-  <table>
+  <table class="table">
+    <thead>
     <tr>
       <th>Name</th>
       <th>Rating</th>
-      <th>State</th>
+      <th *ngIf="type == 'movies'">State</th>
+      <th *ngIf="type == 'games'">Progress</th>
+      <th *ngIf="type == 'series'">Progress</th>
       <th>Remove</th>
     </tr>
-    <tr *ngFor="let movie of movies">
-      <td>{{movie.name}}</td>
-      <td>{{movie.rating}}</td>
-      <td>{{movie.state}}</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{item.name}}</td>
+      <td>{{item.rating}}</td>
+      <td *ngIf="type == 'games'"><input type="range" class="form-range" id="progress" min="0" max="100"
+                                         [value]="item.progress"></td>
+      <td *ngIf="type == 'movies'">{{item.state}}</td>
+      <td *ngIf="type == 'series'">S{{item.currentSeason}}-E{{item.currentEpisode}} / S{{item.maxSeason}}
+        -E{{item.maxEpisode}}</td>
       <td>
-        <button>Remove</button>
+        <svg (click)="onDelete(item)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+             class="bi bi-trash" viewBox="0 0 16 16">
+          <path
+            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
       </td>
     </tr>
+    </tbody>
   </table>
-
 </div>
