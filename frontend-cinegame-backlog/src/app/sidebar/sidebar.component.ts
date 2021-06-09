@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   async logout(): Promise<void> {
-    await this.cookieService.delete('auth')
-    await this.router.navigate(['/login'])
+    await this.cookieService.delete('auth');
+    await this.router.navigate(['/login']);
   }
 }

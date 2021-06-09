@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-reset-password',
@@ -12,7 +13,7 @@ export class ResetPasswordComponent implements OnInit {
 
   valid: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +22,8 @@ export class ResetPasswordComponent implements OnInit {
     if (!this.passwordAreEqual() || !this.passwordAreGreaterThanMinLength()) {
       this.valid = true;
     } else {
-      await this.router.navigate(['/']);
+      await this.cookieService.delete('auth');
+      await this.router.navigate(['/login']);
     }
   }
 
