@@ -1,60 +1,57 @@
 <div class="add-movies" *ngIf="isAddMovieEnabled">
-  <h1 class="centralized">Add Movie</h1>
+  <h1 class="centralized">Add {{type}}</h1>
   <div class="input-group mb-3 centralized">
     <input type="text" class="form-control" id="name" placeholder="Moviename" [(ngModel)]="name">
   </div>
   <div class="input-group mb-3 centralized">
     <input type="number" class="form-control" id="rating" [(ngModel)]="rating">
   </div>
-  <div class="input-group mb-3 centralized" *ngIf="type == 'movies'">
+  <div class="input-group mb-3 centralized" *ngIf="type == 'movie'">
     <select class="form-control" [(ngModel)]="state">
       <option *ngFor="let option of options">
         {{option}}
       </option>
     </select>
   </div>
-  <div class="input-group mb-3 centralized" *ngIf="type == 'games'">
+  <div class="input-group mb-3 centralized" *ngIf="type == 'game'">
     <input type="range" class="form-range" id="progress-range" min="0" max="100" [(ngModel)]="gamesProgress">
   </div>
 
 
-
-  <div class="input-group mb-3 centralized">
-    <label class="sr-only">Username</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend width">
-        <div class="input-group-text">Max Season</div>
+  <div class="form-group" *ngIf="type == 'series'">
+    <div class="input-group mb-3 centralized">
+      <label class="sr-only">Username</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Max Season</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Max Season" [(ngModel)]="maxSeason">
       </div>
-      <input type="text" class="form-control"  placeholder="Max Season" [(ngModel)]="maxSeason">
-    </div>
 
-    <label class="sr-only">Max Episodes</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend width">
-        <div class="input-group-text">Max Episodes</div>
+      <label class="sr-only">Max Episodes</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Max Episodes</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Max Episodes" [(ngModel)]="maxEpisode">
       </div>
-      <input type="text" class="form-control" placeholder="Max Episodes" [(ngModel)]="maxEpisode">
-    </div>
 
-    <label class="sr-only">Current Season</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend width">
-        <div class="input-group-text">Current Season</div>
+      <label class="sr-only">Current Season</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Current Season</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Current Season" [(ngModel)]="currSeason">
       </div>
-      <input type="text" class="form-control" placeholder="Current Season" [(ngModel)]="currSeason">
-    </div>
 
-    <label class="sr-only">Current Episode</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend width">
-        <div class="input-group-text">Current Episode</div>
+      <label class="sr-only">Current Episode</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Current Episode</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Current Episode" [(ngModel)]="currEpisode">
       </div>
-      <input type="text" class="form-control" placeholder="Current Episode" [(ngModel)]="currEpisode">
     </div>
-
-
-
-
 
 
   </div>

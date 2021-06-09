@@ -40,10 +40,10 @@ export class OverviewComponent implements OnInit {
       this.type = param.get('type');
       console.log(this.type)
       switch (this.type) {
-        case 'games':
+        case 'game':
           this.items = GameType.parse(jsonGames)
           break;
-        case 'movies':
+        case 'movie':
           this.items = MovieType.parse(jsonMovies)
           break;
         case 'series':
