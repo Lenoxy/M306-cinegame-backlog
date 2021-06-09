@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   public isEditable = true;
-  public username = 'leo';
-  public email = 'leo@gmx.com';
+  public username = 'xImpact';
+  public email = 'philip.baumann@sluz.ch';
 
   constructor() { }
 

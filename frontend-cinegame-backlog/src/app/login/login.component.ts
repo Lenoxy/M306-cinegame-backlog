@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.email === 'philip.baumann@sluz.ch' && this.password === 'hallovelo') {
       this.cookieService.set('auth', 'true');
-      this.router.navigateByUrl('overview/movie')
+      this.router.navigateByUrl('overview/movie');
     }
   }
 }
