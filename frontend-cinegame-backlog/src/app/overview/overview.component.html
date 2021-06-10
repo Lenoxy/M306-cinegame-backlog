@@ -1,7 +1,7 @@
 <div class="add-movies" *ngIf="isAddMovieEnabled">
   <h1 class="centralized">Add {{type}}</h1>
   <div class="input-group mb-3 centralized">
-    <input type="text" class="form-control" id="name" placeholder="Moviename" [(ngModel)]="name">
+    <input type="text" class="form-control" id="name" placeholder="Title" [(ngModel)]="name">
   </div>
   <div class="input-group mb-3 centralized">
     <input type="number" class="form-control" id="rating" [(ngModel)]="rating">
@@ -17,6 +17,66 @@
     <input type="range" class="form-range" id="progress-range" min="0" max="100" [(ngModel)]="gamesProgress">
   </div>
 
+  <div class="form-group" *ngIf="type == 'series'">
+    <div class="input-group mb-3 centralized">
+      <label class="sr-only">Username</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Max Season</div>
+        </div>
+        <input type="number" class="form-control" placeholder="Max Season" [(ngModel)]="maxSeason">
+      </div>
+
+      <label class="sr-only">Max Episodes</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Max Episodes</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Max Episodes" [(ngModel)]="maxEpisode">
+      </div>
+
+      <label class="sr-only">Current Season</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Current Season</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Current Season" [(ngModel)]="currSeason">
+      </div>
+
+      <label class="sr-only">Current Episode</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend width">
+          <div class="input-group-text">Current Episode</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Current Episode" [(ngModel)]="currEpisode">
+      </div>
+    </div>
+
+
+  </div>
+  <div class="input-group mb-3 centralized">
+    <button class="btn btn-dark form-control" (click)="onAdd()">Add {{type}}</button>
+  </div>
+</div>
+
+<div class="add-movies" *ngIf="isEditMovieEnabled">
+  <h1 class="centralized">Edit {{type}}</h1>
+  <div class="input-group mb-3 centralized">
+    <input type="text" class="form-control"  [(ngModel)]="name">
+  </div>
+  <div class="input-group mb-3 centralized">
+    <input type="number" class="form-control" [(ngModel)]="rating">
+  </div>
+  <div class="input-group mb-3 centralized" *ngIf="type == 'movie'">
+    <select class="form-control" [(ngModel)]="state">
+      <option *ngFor="let option of options">
+        {{option}}
+      </option>
+    </select>
+  </div>
+  <div class="input-group mb-3 centralized" *ngIf="type == 'game'">
+    <input type="range" class="form-range" id="progress-range" min="0" max="100" [(ngModel)]="gamesProgress">
+  </div>
 
   <div class="form-group" *ngIf="type == 'series'">
     <div class="input-group mb-3 centralized">
@@ -53,17 +113,16 @@
       </div>
     </div>
 
-
   </div>
   <div class="input-group mb-3 centralized">
-    <button class="btn btn-dark form-control" (click)="onAdd()">Add {{type}}</button>
+    <button class="btn btn-dark form-control" (click)="onEdit()">Save {{type}}</button>
   </div>
 </div>
 
-<div class="positioning">
+<div class="positioning" *ngIf="isOverviewMovieEnabled">
   <button (click)="toggleType()" class="btn btn-dark">Add {{type}}</button>
 </div>
-<div id="table">
+<div id="table" *ngIf="isOverviewMovieEnabled">
   <table class="table">
     <thead>
     <tr>
@@ -77,7 +136,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of items">
-      <td>{{item.name}}</td>
+      <td><a (dblclick)="editType(item)">{{item.name}}</a></td>
       <td>{{item.rating}}</td>
       <td *ngIf="type == 'games'"><input type="range" class="form-range" id="progress" min="0" max="100"
                                          [value]="item.progress"></td>

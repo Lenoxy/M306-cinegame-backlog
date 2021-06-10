@@ -5,8 +5,8 @@ export class GameType extends GenericItemType {
   dateWatched: Date;
   progress: number;
 
-  constructor(name: string, rating: number, dateWatched: Date, progress: number) {
-    super(name, rating);
+  constructor(id: number, name: string, rating: number, dateWatched: Date, progress: number) {
+    super(id, name, rating);
     this.dateWatched = dateWatched;
     this.progress = progress;
   }
@@ -17,7 +17,7 @@ export class GameType extends GenericItemType {
 
     jsonGames.forEach((game) => {
         gameType.push(
-          new GameType(game.name, game.rating, new Date(game.dateWatched), game.progress)
+          new GameType(game.id, game.name, game.rating, new Date(game.dateWatched), game.progress)
         )
       }
     )

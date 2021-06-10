@@ -1,23 +1,27 @@
 [
   {
+    "id": 0,
     "name": "Deadpool",
     "rating": 8,
     "state": "TO_WATCH",
     "dateWatched": null
   },
   {
+    "id": 1,
     "name": "Star Wars 1",
     "rating": 9,
     "state": "WATCHED",
     "dateWatched": "2012-04-23T18:25:43.511Z"
   },
   {
+    "id": 2,
     "name": "Star Wars 2",
     "rating": 8,
     "state": "WATCHED",
     "dateWatched": "2012-04-23T18:25:43.511Z"
   },
   {
+    "id": 3,
     "name": "Star Wars 3",
     "rating": 10,
     "state": "WATCHED",

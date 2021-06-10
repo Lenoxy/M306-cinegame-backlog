@@ -1,17 +1,20 @@
 [
   {
+    "id": 0,
     "name": "Outbreak",
     "rating": 3,
     "progress": 75,
     "dateWatched": "2012-07-20T18:25:43.511Z"
   },
   {
+    "id": 1,
     "name": "World at War",
     "rating": 7,
     "progress": 10,
     "dateWatched": "2015-04-01T18:25:43.511Z"
   },
   {
+    "id": 2,
     "name": "Age of darkness",
     "rating": 10,
     "progress": 40,

@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "name": "How I met your mother",
     "rating": 8,
     "progressseason": 1,
@@ -9,6 +10,7 @@
     "dateWatched": null
   },
   {
+    "id": 1,
     "name": "Peaky Blinders",
     "rating": 10,
     "progressseason": 3,
@@ -18,6 +20,7 @@
     "dateWatched": "2012-04-23T18:25:43.511Z"
   },
   {
+    "id": 2,
     "name": "Swat",
     "rating": 8,
     "progressseason": 2,
@@ -27,6 +30,7 @@
     "dateWatched": "2012-04-23T18:25:43.511Z"
   },
   {
+    "id": 3,
     "name": "Hawaii Five 0",
     "rating": 10,
     "progressseason": 8,

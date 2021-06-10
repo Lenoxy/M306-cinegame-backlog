@@ -4,8 +4,8 @@ export class MovieType extends GenericItemType {
   dateWatched: Date;
   state: MovieState;
 
-  constructor(name: string, rating: number, dateWatched: Date, state: MovieState) {
-    super(name, rating);
+  constructor(id: number, name: string, rating: number, dateWatched: Date, state: MovieState) {
+    super(id, name, rating);
     this.dateWatched = dateWatched;
     this.state = state;
   }
@@ -14,7 +14,7 @@ export class MovieType extends GenericItemType {
     let movieTypes: MovieType[] = []
 
     jsonMovies.forEach(movie => {
-      movieTypes.push(new MovieType(movie.name, movie.rating, new Date(movie.dateWatched), movie.state))
+      movieTypes.push(new MovieType(movie.id, movie.name, movie.rating, new Date(movie.dateWatched), movie.state))
     })
 
     console.log(movieTypes)

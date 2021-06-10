@@ -9,8 +9,8 @@ export class SerieType extends GenericItemType {
   currentSeason: number
   currentEpisode: number
 
-  constructor(name: string, rating: number, maxSeason: number, maxEpisode: number, currentSeason: number, currentEpisode: number) {
-    super(name, rating)
+  constructor(id: number, name: string, rating: number, maxSeason: number, maxEpisode: number, currentSeason: number, currentEpisode: number) {
+    super(id, name, rating)
     this.maxSeason = maxSeason
     this.maxEpisode = maxEpisode
     this.currentSeason = currentSeason
@@ -21,7 +21,7 @@ export class SerieType extends GenericItemType {
     let seriesType: SerieType[] = []
 
     jsonSeries.forEach(serie => {
-      seriesType.push(new SerieType(serie.name, serie.rating, serie.maxseason, serie.maxepisode, serie.progressseason, serie.progressepisode))
+      seriesType.push(new SerieType(serie.id, serie.name, serie.rating, serie.maxseason, serie.maxepisode, serie.progressseason, serie.progressepisode))
     })
 
     console.log(seriesType)
