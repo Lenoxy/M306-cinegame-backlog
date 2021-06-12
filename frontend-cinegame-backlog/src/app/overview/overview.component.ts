@@ -34,13 +34,12 @@ export class OverviewComponent implements OnInit {
   currEpisode: number;
 
 
-
-  constructor(private _ActivatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.items.forEach((movie) => console.log(movie.name));
-    this._ActivatedRoute.paramMap.subscribe(param => {
+    this.activatedRoute.paramMap.subscribe(param => {
       this.type = param.get('type');
       console.log(this.type);
       switch (this.type) {
@@ -54,11 +53,10 @@ export class OverviewComponent implements OnInit {
           this.items = SerieType.parse(jsonSeries);
           break;
         default:
-          this.type = 'movies';
+          this.type = 'movie';
           this.items = MovieType.parse(jsonMovies);
       }
     })
-    console.log(this.items);
   }
 
   onDelete(item): void {
@@ -68,17 +66,17 @@ export class OverviewComponent implements OnInit {
 
   onAdd(): void {
 
-      if (this.type === 'movie') {
-        if (this.name.length) {
-          this.items.push(new MovieType(this.generateID(), this.name, this.rating, null, this.state));
-          this.name = '';
-          this.state = MovieState.TO_WATCH;
-          this.rating = 1;
-        }
+    if (this.type === 'movie') {
+      if (this.name.length) {
+        this.items.push(new MovieType(this.generateID(), this.name, this.rating, null, this.state));
+        this.name = '';
+        this.state = MovieState.TO_WATCH;
+        this.rating = 1;
       }
+    }
 
-      if(this.type === 'series') {
-        if (this.name.length) {
+    if (this.type === 'series') {
+      if (this.name.length) {
         this.items.push(new SerieType(this.generateID(), this.name, this.rating, this.maxSeason, this.maxEpisode, this.currSeason, this.currEpisode));
         this.name = '';
         this.rating = 1;
@@ -86,21 +84,21 @@ export class OverviewComponent implements OnInit {
         this.maxEpisode = null;
         this.currSeason = null;
         this.currEpisode = null;
-        }
       }
+    }
 
-      if(this.type === 'game') {
-        if (this.name.length) {
-          this.items.push(new GameType(this.generateID(), this.name, this.rating, null, this.gamesProgress));
-          this.name = '';
-          this.rating = 1;
-          this.gamesProgress = null;
-        }
+    if (this.type === 'game') {
+      if (this.name.length) {
+        this.items.push(new GameType(this.generateID(), this.name, this.rating, null, this.gamesProgress));
+        this.name = '';
+        this.rating = 1;
+        this.gamesProgress = null;
       }
+    }
 
-      this.isAddMovieEnabled = false;
-      this.isEditMovieEnabled = false;
-      this.isOverviewMovieEnabled = true;
+    this.isAddMovieEnabled = false;
+    this.isEditMovieEnabled = false;
+    this.isOverviewMovieEnabled = true;
 
   }
 
@@ -152,7 +150,7 @@ export class OverviewComponent implements OnInit {
       this.currEpisode = item.currEpisode;
     }
 
-    if(this.type === 'game') {
+    if (this.type === 'game') {
       this.id = item.id;
       this.name = item.name;
       this.rating = item.rating;
@@ -163,7 +161,8 @@ export class OverviewComponent implements OnInit {
     this.isEditMovieEnabled = true;
     this.isOverviewMovieEnabled = false;
   }
-  generateID(): number{
+
+  generateID(): number {
     return this.items.length;
   }
 }
