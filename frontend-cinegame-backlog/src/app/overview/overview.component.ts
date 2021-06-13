@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {MovieState, MovieType} from '../type/movie.type';
 import jsonMovies from '../../assets/data/movies.json';
 import jsonGames from '../../assets/data/games.json';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GameType} from "../type/game.type";
 import {GenericItemType} from "../type/generic-item.type";
 import jsonSeries from '../../assets/data/series.json';
 import {SerieType} from "../type/serie.type";
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-overview',
@@ -34,10 +35,16 @@ export class OverviewComponent implements OnInit {
   currEpisode: number;
 
 
-  constructor(private activatedRoute: ActivatedRoute) {
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    if(!this.cookieService.get('auth')){
+      this.router.navigateByUrl('/login');
+    }
     this.items.forEach((movie) => console.log(movie.name));
     this.activatedRoute.paramMap.subscribe(param => {
       this.type = param.get('type');
